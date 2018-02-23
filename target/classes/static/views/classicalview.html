@@ -1,0 +1,44 @@
+<!-- <h3>{{headingTitle}}</h3> -->
+<h3>ToDo Item Entry Form</h3>
+<form class="form-inline">
+	<div class="form-group formitemspacing">
+		<label for="todoItem"  class="formlabelspacing">Item Name</label>
+		<input type="text" ng-model="todoItem" name="todoItem" class="form-control" size="100"></input>
+	</div>
+	<div class="form-group formitemspacing" >
+	<label for="status" class="formlabelspacing" >Status</label>
+	<select ng-model="status" name="status" class="form-control">
+		<option value="NOT_STARTED">NOT STARTED</option>
+		<option value="IN_PROGRESS">IN_PROGRESS</option>
+		<option value="COMPLETED">COMPLETED</option>
+	</select>
+	</div>
+	<br>
+	<button class="btn formbuttonspacing" ng-click="addItem()">Add</button>
+	<button class="btn formbuttonspacing" ng-click="searchItem()">Search</button>
+	<br>
+</form>
+<br>
+<br>
+
+{{restresponse}}
+
+<div class="section">
+    <h3>List Of Items</h3>
+	<div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>TODO Item</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in items" ng-class="findItemStyle(item.status)">
+					<td>{{item.todoItem}}</td>
+					<td>{{item.status}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
